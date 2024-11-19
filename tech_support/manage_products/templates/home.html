@@ -1,0 +1,16 @@
+<head> 
+    <link rel = "stylesheet" href = "/static/main.css">
+</head> 
+<header>
+    <h1> SportsPro </h1>
+    <a href = "{% url 'home' %}">Home</a>
+  </header>
+<h1> Home Screen </h1>
+<div>
+    <a href = "{% url 'product_list' %}" style="display: block;" >View all products</a> 
+    <a href = "{% url 'manage_products' %}" style="display: block;" >Add or remove Products</a> 
+    <a href = "{% url 'manage_technicians' %}" style="display: block;" >View Technicians</a> 
+</div>
+<footer> 
+    <div align = "right">© 2022 SportsPro, Inc.</div>
+</footer>

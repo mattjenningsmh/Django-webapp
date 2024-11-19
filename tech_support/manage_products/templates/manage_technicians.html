@@ -1,0 +1,35 @@
+<header>
+    <h1> SportsPro </h1>
+    <a href = "{% url 'home' %}">Home</a>
+  </header>
+
+<head> 
+    <link rel = "stylesheet" href = "/static/main.css">
+</head> 
+
+<h1> Technicians List </h1>
+<table> 
+    <tr> 
+        <th>first name</th> 
+        <th>last name</th>
+        <th>email</th>
+        <th>phone</th>
+        <th></th> 
+    </tr>
+    {% for technician in technicians %}
+    <tr>
+        <td> {{ technician.firstname }}</td>
+        <td> {{ technician.lastname }} </td> 
+        <td> {{ technician.email }}</td> 
+        <td> {{ technician.phone }}</td> 
+        <td> <form method="POST" action="{% url 'remove_technician' technician.techid %}">
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+        </form> </td>
+    </tr>
+    {% endfor %}
+</table>
+<a href = "{% url 'add_technician' %}">Add Technician</a> 
+<footer> 
+    <div align = "right">© 2022 SportsPro, Inc.</div>
+</footer>

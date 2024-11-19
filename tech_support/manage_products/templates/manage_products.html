@@ -1,0 +1,32 @@
+<header>
+    <h1> SportsPro </h1>
+    <a href = "{% url 'home' %}">Home</a>
+  </header>
+
+<head> 
+    <link rel = "stylesheet" href = "/static/main.css">
+</head> 
+
+<h1> Product List </h1>
+<table> 
+    <tr> 
+        <th>Code</th> 
+        <th>Name</th>
+        <th>Version</th>
+        <th>Release Date</th>
+        <th></th> 
+    </tr>
+    {% for product in products %}
+    <tr>
+        <td> {{product.productcode}}</td>
+        <td> {{ product.name }} </td> 
+        <td> {{ product.version }}</td> 
+        <td> {{ product.releasedate|date:"Y-m-d H:i" }}</td> 
+        <td> <a href="{% url 'remove_product' product.productcode%}">Delete</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+<a href = "{% url 'add_product' %}">Add Product</a> 
+<footer> 
+    <div align = "right">© 2022 SportsPro, Inc.</div>
+</footer>

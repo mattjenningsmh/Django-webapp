@@ -1,0 +1,21 @@
+<head> 
+    <link rel = "stylesheet" href = "/static/main.css">
+</head> 
+<header>
+  <h1> SportsPro </h1>
+  <a href = "{% url 'home' %}">Home</a>
+</header>
+<body>
+  <h2>Add a New Product</h2>
+  <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Submit</button>
+  </form>
+</body>
+
+<a href = "{% url 'product_list' %}">view product list</a>
+
+<footer> 
+  <div align = "right">© 2022 SportsPro, Inc.</div>
+</footer>
